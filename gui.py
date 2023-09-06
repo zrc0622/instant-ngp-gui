@@ -57,12 +57,10 @@ def execute_commands():
     exe_nerf_dir = exe_folder_dir[:-4] + "\instant-ngp.exe"
     text_dir = train_dir + "\colmap_text"
     
-    
     if selected_option1.get() == '是':
         if_optimize = True
     else:
         if_optimize = False
-
 
     print(exe_colmap_dir)
     print(f"dir_path: {train_dir}")
