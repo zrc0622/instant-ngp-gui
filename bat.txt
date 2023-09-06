@@ -1,0 +1,44 @@
+setlocal enabledelayedexpansion
+
+set "amount=160"
+set "train_dir=B:\code\NeRF\Instant-NGP-for-RTX-3000-and-4000\my_data\gao_da"
+set "video_dir=B:\code\NeRF\Instant-NGP-for-RTX-3000-and-4000\my_data\gao_da\gaoda.mp4"
+set "images_dir=B:\code\NeRF\Instant-NGP-for-RTX-3000-and-4000\my_data\gao_da\images"
+
+set "exe_image_dir=B:\code\vs2019\opencv\x64\Release\opencv.exe"
+set "exe_colmap_dir=B:\code\NeRF\Instant-NGP-for-RTX-3000-and-4000\scripts\colmap2nerf.py"
+set "nerf_dir=B:\code\NeRF\Instant-NGP-for-RTX-3000-and-4000"
+set "exe_nerf_dir=B:\code\NeRF\Instant-NGP-for-RTX-3000-and-4000\instant-ngp.exe"
+
+
+B:
+cd %train_dir%
+for /f %%i in ('ffprobe -v error -show_entries format^=duration -of default^=noprint_wrappers^=1:nokey^=1 %video_dir%') do (set "c=%%i")
+set /a p=%amount%/%c%
+echo y|python %exe_colmap_dir% --video_in %video_dir% --video_fps %p%
+
+set /a count=0
+for %%f in ("%images_dir%\*.jpg") do (
+    set /a count+=1
+    set /a count2=!count!%%2
+    if !count2! equ 1 (
+        set "img1_file=%%f"
+        "%exe_image_dir%" "%%f"
+        set grad1=!ERRORLEVEL!
+    ) else (
+        set "img2_file=%%f"
+        "%exe_image_dir%" "%%f"
+        set grad2=!ERRORLEVEL!
+        if !grad1! lss !grad2! (
+            del "!img1_file!"
+        ) else (
+            del "!img2_file!"
+        )
+    )
+)
+
+
+echo y|python %exe_colmap_dir% --colmap_matcher exhaustive --run_colmap --aabb_scale 16
+B:
+cd %nerf_dir%
+%exe_nerf_dir% --mode nerf --scene %train_dir%
