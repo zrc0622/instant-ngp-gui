@@ -6,7 +6,6 @@ import os
 
 exe_folder_dir = os.path.dirname(os.path.abspath(__file__))  # exe所在文件夹路径
 
-
 def create_branch_window1():
     branch_window1 = tk.Toplevel(main_window)
     branch_window1.title("colmap+NeRF")
@@ -23,6 +22,8 @@ def create_branch_window1():
     bg_image = PhotoImage(file="./image/logo.png")
     background_label = tk.Label(branch_window1, image=bg_image)
     background_label.place(x=98, y=30)  # 设置背景位置（98,73）
+
+    branch_window1.iconbitmap('./image/logo2.ico')
 
     # 创建标签和输入框用于输入文件路径
     dir_label = tk.Label(branch_window1, text="视频路径:")
@@ -141,16 +142,16 @@ def create_branch_window1():
     branch_window1.protocol("WM_DELETE_WINDOW", exit)
 
     # 创建按钮用于执行命令
-    execute_button = tk.Button(branch_window1, text="开始三维重建", command=execute_commands)
-    execute_button.place(x=209, y=348)
+    execute_button = tk.Button(branch_window1, text="开始三维重建", width=12, anchor='center',command=execute_commands)
+    execute_button.place(x=200, y=348)
 
     # 创建返回按钮，用于返回主窗口
-    return_button = tk.Button(branch_window1, text="返回主窗口", command=lambda: return_to_main_window(branch_window1))
-    return_button.place(x=20, y=348)
+    return_button = tk.Button(branch_window1, text="返回主窗口", width=12, anchor='center',command=lambda: return_to_main_window(branch_window1))
+    return_button.place(x=70, y=348)
 
     # 创建退出按钮，用于退出 GUI
-    exit_button = tk.Button(branch_window1, text="退出 GUI", command=lambda: exit_gui(branch_window1))
-    exit_button.place(x=360, y=348)
+    exit_button = tk.Button(branch_window1, text="退出 GUI", width=12, anchor='center',command=lambda: exit_gui(branch_window1))
+    exit_button.place(x=330, y=348)
 
     # 创建标签用于显示执行结果
     result_label = tk.Label(branch_window1, text="")
@@ -159,6 +160,20 @@ def create_branch_window1():
     # 运行界面主循环
     branch_window1.mainloop()
 
+def show_branch_window(option):
+    main_window.withdraw()
+    if option == "1":
+        create_branch_window1()
+
+# 销毁当前窗口并返回主窗口
+def return_to_main_window(current_window):
+    current_window.destroy()  # 销毁当前窗口
+    main_window.deiconify()  # 显示主窗口
+
+# 退出gui界面
+def exit_gui(window):
+    window.destroy()
+    main_window.destroy()
 
 # 主窗口
 main_window = tk.Tk()
@@ -177,33 +192,25 @@ bg_image = PhotoImage(file="./image/logo.png")
 background_label = tk.Label(main_window, image=bg_image)
 background_label.place(x=98, y=30)  # 设置背景位置（98,73）
 
+main_window.iconbitmap('./image/logo2.ico')
 
-def show_branch_window(option):
-    main_window.withdraw()
-    if option == "选项1":
-        create_branch_window1()
+# 创建按钮用于执行命令
+execute_button = tk.Button(main_window, text="从视频开始", command=lambda: show_branch_window('1'),  width=15, anchor='center')
+execute_button.place(x=189, y=130)
 
-# 销毁当前窗口并返回主窗口
-def return_to_main_window(current_window):
-    current_window.destroy()  # 销毁当前窗口
-    main_window.deiconify()  # 显示主窗口
+# 创建返回按钮，用于返回主窗口
+return_button = tk.Button(main_window, text="从图片和位姿开始", command=lambda: show_branch_window('1'), width=15, anchor='center')
+return_button.place(x=189, y=190)
 
-# 退出gui界面
-def exit_gui(window):
-    window.destroy()
-    main_window.destroy()
+# # 创建一个下拉菜单来选择选项
+# options = ["选项1", "选项2"]
+# selected_option = tk.StringVar()
+# option_menu = tk.OptionMenu(main_window, selected_option, *options)
+# option_menu.pack()
 
-
-# 创建一个下拉菜单来选择选项
-options = ["选项1", "选项2"]
-selected_option = tk.StringVar()
-option_menu = tk.OptionMenu(main_window, selected_option, *options)
-option_menu.pack()
-
-# 创建一个按钮，用于触发显示分支窗口的操作
-show_button = tk.Button(main_window, text="显示分支窗口", command=lambda: show_branch_window(selected_option.get()))
-show_button.pack()
-
+# # 创建一个按钮，用于触发显示分支窗口的操作
+# show_button = tk.Button(main_window, text="显示分支窗口", command=lambda: show_branch_window(selected_option.get()))
+# show_button.pack()
 
 # 运行主循环
 main_window.mainloop()
