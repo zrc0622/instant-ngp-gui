@@ -19,6 +19,6 @@
 # 使用
 
 1. 如果你使用RTX30系或RTX40系显卡，在[此处](https://github.com/NVlabs/instant-ngp/releases/download/continuous/Instant-NGP-for-RTX-3000-and-4000.zip)下载instant-ngp的release版本代码
-2. 将本库克隆到`Instant-NGP-for-RTX-3000-and-4000\`下（与`instant-ngp.exe`同级）
+2. 将本库克隆到`Instant-NGP-for-RTX-3000-and-4000\`下（与`instant-ngp.exe`同级）<br>![示例](https://github.com/zrc0622/instant-ngp-gui/image/Snipaste.jpg)
 3. 安装`gui.py`必要的包后运行它，即可实现视频的三维重建
 
