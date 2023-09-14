@@ -5,6 +5,7 @@ import subprocess
 import os
 import sys
 
+
 # 获取可执行文件所在的路径
 if getattr(sys, 'frozen', False):
     exe_folder_dir = os.path.dirname(sys.executable)
