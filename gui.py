@@ -3,8 +3,18 @@ from tkinter import PhotoImage
 from tkinter import ttk
 import subprocess
 import os
+import sys
 
-exe_folder_dir = os.path.dirname(os.path.abspath(__file__))  # exe所在文件夹路径
+# 获取可执行文件所在的路径
+if getattr(sys, 'frozen', False):
+    exe_folder_dir = os.path.dirname(sys.executable)
+else:
+    exe_folder_dir = os.path.dirname(os.path.abspath(__file__))
+
+print(exe_folder_dir)
+
+# exe_folder_dir = os.path.dirname(os.path.abspath(__file__))  # exe所在文件夹路径
+# print(exe_folder_dir)
 
 def create_branch_window1():
     branch_window1 = tk.Toplevel(main_window)
