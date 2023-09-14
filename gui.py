@@ -73,6 +73,8 @@ def create_branch_window1():
         mp4_name = mp4_entry.get()  # mp4文件名称
         video_dir = train_dir + "\\" + mp4_name
         images_dir = train_dir + "\images"
+        ffmpeg_dir = exe_folder_dir + "\\ffmpeg\\ffprobe.exe"
+        print(ffmpeg_dir)
         opencv_dir = exe_folder_dir + "\open_cv\opencv.exe"
         exe_colmap_dir = exe_folder_dir[:-4] + "\scripts\colmap2nerf.py"
         nerf_dir = exe_folder_dir[:-4]
@@ -93,7 +95,7 @@ def create_branch_window1():
             os.chdir(train_dir)
 
             # 使用subprocess执行ffprobe命令获取视频时长
-            video_time_command = f'ffprobe -v error -show_entries format^=duration -of default^=noprint_wrappers^=1:nokey^=1 "{video_dir}"'
+            video_time_command = f'{ffmpeg_dir} -v error -show_entries format^=duration -of default^=noprint_wrappers^=1:nokey^=1 "{video_dir}"'
             video_time = subprocess.check_output(video_time_command, shell=True, text=True)
             video_time = float(video_time.strip())  # 将输出转换为浮点数
 

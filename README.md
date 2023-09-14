@@ -18,7 +18,15 @@
 
 # 使用
 
+## 使用.py
+
 1. 如果你使用RTX30系或RTX40系显卡，在[此处](https://github.com/NVlabs/instant-ngp/releases/download/continuous/Instant-NGP-for-RTX-3000-and-4000.zip)下载instant-ngp的release版本代码。如果你的下载速度较慢，也可以使用我分享的[百度云](https://pan.baidu.com/s/1XWwEZgd8lK6CahG1-_XoOA?pwd=dnid)链接进行下载(提取码：dnid)
 2. 将本库克隆到`Instant-NGP-for-RTX-3000-and-4000\`下（与`instant-ngp.exe`同级）<br>![示例](/image/Snipaste.jpg "文件示例")
-3. 安装`gui.py`必要的包后运行它，你也可以直接运行`gui.exe`，即可实现视频的三维重建
+3. 在本库下创建文件夹`ffmpeg`，并下载`ffprobe.exe`放入`ffmpeg`文件夹下，可以使用[百度云](https://pan.baidu.com/s/1Mk8a08Fyg7YIvWFIGYdmAQ?pwd=um10)(提取码：um10)进行下载<br>![示例](/image/Snipaste2.jpg "文件示例")
+4. 安装`gui.py`必要的包后运行它，即可实现视频的三维重建
+
+## 使用.exe
+
+1. 运行`build.py`，并将生成的文件夹`dist`内的`gui.exe`移动至与`dist`同级目录下
+2. 当然，你也可以直接使用源代码提供的`gui.exe`
 
