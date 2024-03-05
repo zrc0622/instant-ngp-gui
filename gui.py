@@ -163,7 +163,7 @@ def create_branch_window1():
     return_button.place(x=70, y=348)
 
     # 创建退出按钮，用于退出 GUI
-    exit_button = tk.Button(branch_window1, text="退出 GUI", width=12, anchor='center',command=lambda: exit_gui(branch_window1))
+    exit_button = tk.Button(branch_window1, text="退出", width=12, anchor='center',command=lambda: exit_gui(branch_window1))
     exit_button.place(x=330, y=348)
 
     # 创建标签用于显示执行结果
@@ -317,7 +317,7 @@ def create_branch_window2():
     return_button.place(x=70, y=348)
 
     # 创建退出按钮，用于退出 GUI
-    exit_button = tk.Button(branch_window2, text="退出 GUI", width=12, anchor='center',command=lambda: exit_gui(branch_window2))
+    exit_button = tk.Button(branch_window2, text="退出", width=12, anchor='center',command=lambda: exit_gui(branch_window2))
     exit_button.place(x=330, y=348)
 
     # 创建标签用于显示执行结果
