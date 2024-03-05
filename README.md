@@ -12,7 +12,7 @@
 
 1. 添加`生成mesh文件`选项
 
-## 图像梯度算法优化效果
+## 优化效果
 使用图像梯度算法优化后的重建视频，有着更高的图像梯度（运动模糊更低），和更高的PSNR、SSIM值（与原视频更相似）
 ![image](picture\gradient_comparison.png)
 ![image](picture\psnr_comparison.png)
