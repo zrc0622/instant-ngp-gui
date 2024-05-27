@@ -3,9 +3,9 @@
 
 ## 界面展示
 <div style="display: flex; justify-content: space-around;">
-  <img src="./images/1.jpg" alt="Image 1" style="width: 30%; margin: 10px;">
-  <img src="./images/2.jpg" alt="Image 2" style="width: 30%; margin: 10px;">
-  <img src="./images/3.jpg" alt="Image 3" style="width: 30%; margin: 10px;">
+  <img src="./images/1.jpg" alt="Image 1" style="width: 33%; margin: 10px;">
+  <img src="./images/2.jpg" alt="Image 2" style="width: 33%; margin: 10px;">
+  <img src="./images/3.jpg" alt="Image 3" style="width: 33%; margin: 10px;">
 </div>
 
 ## 已实现的功能
@@ -24,9 +24,9 @@
 
 使用图像梯度算法优化后的重建视频，有着更高的图像梯度（运动模糊更低），和更高的PSNR、SSIM值（与原视频更相似）
 <div style="display: flex; justify-content: space-around;">
-  <img src="./images/gradient_comparison.png" alt="Image 1" style="width: 30%; margin: 10px;">
-  <img src="./images/psnr_comparison.png" alt="Image 2" style="width: 30%; margin: 10px;">
-  <img src="./images/ssim_comparison.png" alt="Image 3" style="width: 30%; margin: 10px;">
+  <img src="./images/gradient_comparison.png" alt="Image 1" style="width: 33%; margin: 0px;">
+  <img src="./images/psnr_comparison.png" alt="Image 2" style="width: 33%; margin: 0px;">
+  <img src="./images/ssim_comparison.png" alt="Image 3" style="width: 33%; margin: 0px;">
 </div>
 
 
